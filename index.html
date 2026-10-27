@@ -1,0 +1,542 @@
+# Sahayog
+<title>सहयोग (Sahyog) | Jobs for Everyone</title>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>सहयोग (Sahyog) | Jobs for Everyone</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f4f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #102a56;
+      color: white;
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #102a56, #1768a5);
+      color: white;
+      text-align: center;
+      padding: 65px 20px;
+    }
+
+    .hero h1 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 22px;
+    }
+
+    .button {
+      display: inline-block;
+      border: none;
+      background: #ffbd35;
+      color: #172033;
+      padding: 12px 18px;
+      border-radius: 7px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    .button.secondary {
+      background: white;
+      color: #102a56;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 35px auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(
+        auto-fit, minmax(220px, 1fr)
+      );
+      gap: 18px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: 0 3px 14px #0000000d;
+      overflow-wrap: anywhere;
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+      color: #102a56;
+    }
+
+    .form-box {
+      background: white;
+      max-width: 650px;
+      margin: 25px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 3px 14px #0000000d;
+    }
+
+    .form-box h2 {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin: 12px 0 5px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccd3df;
+      border-radius: 6px;
+      font-size: 15px;
+    }
+
+    textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .form-box button {
+      width: 100%;
+      margin: 18px 0 0;
+    }
+
+    .notice {
+      background: #fff4d6;
+      padding: 12px;
+      border-radius: 7px;
+      font-size: 13px;
+      margin-top: 15px;
+    }
+
+    .listing {
+      border-left: 4px solid #1768a5;
+      margin-bottom: 14px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 20px;
+      color: #596579;
+    }
+
+    footer {
+      background: #102a56;
+      color: white;
+      text-align: center;
+      padding: 24px 12px;
+      margin-top: 45px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .container {
+        width: 92%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">🇮🇳 सहयोग (Sahyog)</div>
+
+  <nav>
+    <a href="#home">होम</a>
+    <a href="#register">रजिस्ट्रेशन</a>
+    <a href="#post-job">नौकरी पोस्ट करें</a>
+    <a href="#jobs">नौकरी खोजें</a>
+    <a href="#workers">कामगार खोजें</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>सहयोग — काम और रोजगार का नया माध्यम</h1>
+
+  <p>
+    कंपनियों को कामगारों से और कामगारों को रोजगार से जोड़ने
+    वाला एक प्लेटफॉर्म। यहाँ कंपनियाँ नौकरी पोस्ट कर सकती हैं
+    और कामगार रोजगार के अवसर खोज सकते हैं।
+  </p>
+
+  <a href="#register" class="button">अभी रजिस्टर करें</a>
+  <a href="#jobs" class="button secondary">नौकरियाँ देखें</a>
+</section>
+
+<section class="container">
+  <h2 class="section-title">आप क्या करना चाहते हैं?</h2>
+
+  <div class="cards">
+    <div class="card">
+      <h3>🏢 कंपनी के लिए</h3>
+      <p>अपनी कंपनी रजिस्टर करें और कामगारों की तलाश करें।</p>
+      <a href="#register" class="button">कंपनी रजिस्ट्रेशन</a>
+    </div>
+
+    <div class="card">
+      <h3>👷 कामगार के लिए</h3>
+      <p>अपनी स्किल की जानकारी दें और रोजगार के अवसर खोजें।</p>
+      <a href="#register" class="button">कामगार रजिस्ट्रेशन</a>
+    </div>
+
+    <div class="card">
+      <h3>🔎 नौकरी खोजें</h3>
+      <p>उपलब्ध नौकरियों की जानकारी देखें।</p>
+      <a href="#jobs" class="button">नौकरी खोजें</a>
+    </div>
+  </div>
+</section>
+
+<section class="container" id="register">
+  <div class="form-box">
+    <h2>रजिस्ट्रेशन फॉर्म</h2>
+
+    <form id="registrationForm">
+
+      <label for="role">आप किस रूप में रजिस्टर करेंगे?</label>
+      <select id="role" required>
+        <option value="">चुनें</option>
+        <option value="Worker">कामगार</option>
+        <option value="Company">कंपनी</option>
+      </select>
+
+      <label for="name">आपका नाम</label>
+      <input id="name" maxlength="80" required
+             placeholder="अपना नाम लिखें">
+
+      <div id="companyField" class="hidden">
+        <label for="companyName">कंपनी का नाम</label>
+        <input id="companyName" maxlength="120"
+               placeholder="कंपनी का नाम लिखें">
+      </div>
+
+      <label for="city">शहर</label>
+      <input id="city" maxlength="80" required
+             placeholder="अपने शहर का नाम लिखें">
+
+      <label for="state">राज्य</label>
+      <input id="state" maxlength="80" required
+             placeholder="अपने राज्य का नाम लिखें">
+
+      <label for="skill">काम का प्रकार</label>
+      <select id="skill" required>
+        <option value="">काम चुनें</option>
+        <option>फैक्ट्री वर्कर</option>
+        <option>निर्माण मजदूर</option>
+        <option>इलेक्ट्रिशियन</option>
+        <option>प्लंबर</option>
+        <option>पेंटर</option>
+        <option>ड्राइवर</option>
+        <option>वेल्डर</option>
+        <option>बढ़ई</option>
+        <option>सफाई कर्मचारी</option>
+        <option>कृषि श्रमिक</option>
+        <option>अन्य</option>
+      </select>
+
+      <label for="experience">काम का अनुभव</label>
+      <select id="experience" required>
+        <option value="">अनुभव चुनें</option>
+        <option>नया कामगार</option>
+        <option>1 वर्ष से कम</option>
+        <option>1 से 3 वर्ष</option>
+        <option>3 वर्ष से अधिक</option>
+      </select>
+
+      <label for="contact">मोबाइल नंबर</label>
+      <input id="contact" type="tel"
+             inputmode="numeric"
+             pattern="[0-9]{10}"
+             maxlength="10"
+             required
+             placeholder="10 अंकों का नंबर">
+
+      <button class="button" type="submit">
+        रजिस्ट्रेशन सबमिट करें
+      </button>
+
+      <p class="notice">
+        यह शुरुआती डेमो है। इसमें वास्तविक व्यक्तिगत जानकारी
+        न डालें। डेटा सुरक्षित रूप से सर्वर पर सेव नहीं होता।
+      </p>
+
+    </form>
+  </div>
+</section>
+
+<section class="container hidden" id="post-job">
+  <div class="form-box">
+    <h2>नौकरी पोस्ट करें</h2>
+
+    <form id="jobForm">
+
+      <label for="jobCompany">कंपनी का नाम</label>
+      <input id="jobCompany" maxlength="120" required>
+
+      <label for="jobTitle">काम का नाम</label>
+      <input id="jobTitle" maxlength="100" required
+             placeholder="उदाहरण: फैक्ट्री वर्कर">
+
+      <label for="jobCity">काम की जगह</label>
+      <input id="jobCity" maxlength="80" required>
+
+      <label for="jobSalary">मासिक वेतन (₹)</label>
+      <input id="jobSalary" type="number"
+             min="0" max="10000000" required>
+
+      <label for="jobVacancies">कितने कामगार चाहिए?</label>
+      <input id="jobVacancies" type="number"
+             min="1" max="100000" required>
+
+      <label for="jobDescription">काम की जानकारी</label>
+      <textarea id="jobDescription"
+                maxlength="1500" required></textarea>
+
+      <button class="button" type="submit">
+        नौकरी प्रकाशित करें
+      </button>
+
+    </form>
+  </div>
+</section>
+
+<section class="container" id="jobs">
+  <h2 class="section-title">उपलब्ध नौकरियाँ</h2>
+  <div id="jobList" class="cards"></div>
+</section>
+
+<section class="container" id="workers">
+  <h2 class="section-title">रजिस्टर किए गए कामगार</h2>
+  <div id="workerList" class="cards"></div>
+</section>
+
+<footer>
+  <h3>सहयोग (Sahyog) 🇮🇳</h3>
+  <p>लोगों को रोजगार से जोड़ने की एक पहल।</p>
+  <p>डेमो वर्जन — अभी वास्तविक भर्ती सेवा नहीं है।</p>
+</footer>
+
+<script>
+  const $ = id => document.getElementById(id);
+
+  let registrations = [];
+  let jobs = [];
+
+  $("role").addEventListener("change", () => {
+    const isCompany = $("role").value === "Company";
+
+    $("companyField").classList.toggle("hidden", !isCompany);
+    $("companyName").required = isCompany;
+  });
+
+  $("registrationForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const role = $("role").value;
+    const contact = $("contact").value.trim();
+
+    if (!/^[0-9]{10}$/.test(contact)) {
+      alert("कृपया 10 अंकों का सही मोबाइल नंबर दर्ज करें।");
+      return;
+    }
+
+    const person = {
+      role,
+      name: $("name").value.trim(),
+      company: $("companyName").value.trim(),
+      city: $("city").value.trim(),
+      state: $("state").value.trim(),
+      skill: $("skill").value,
+      experience: $("experience").value
+    };
+
+    // संपर्क नंबर सार्वजनिक सूची में नहीं दिखाया जाता।
+    registrations.push(person);
+
+    renderWorkers();
+
+    alert(
+      "डेमो रजिस्ट्रेशन पूरा हुआ। " +
+      "जानकारी केवल इस ब्राउज़र के अस्थायी सेशन में उपलब्ध है।"
+    );
+
+    event.target.reset();
+    $("companyField").classList.add("hidden");
+    $("companyName").required = false;
+  });
+
+  $("jobForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const job = {
+      company: $("jobCompany").value.trim(),
+      title: $("jobTitle").value.trim(),
+      city: $("jobCity").value.trim(),
+      salary: Number($("jobSalary").value),
+      vacancies: Number($("jobVacancies").value),
+      description: $("jobDescription").value.trim()
+    };
+
+    jobs.push(job);
+
+    renderJobs();
+
+    alert("डेमो नौकरी प्रकाशित हो गई।");
+
+    event.target.reset();
+  });
+
+  function makeText(tag, text, className = "") {
+    const element = document.createElement(tag);
+    element.textContent = text;
+
+    if (className) {
+      element.className = className;
+    }
+
+    return element;
+  }
+
+  function renderWorkers() {
+    const list = $("workerList");
+    list.replaceChildren();
+
+    const workers = registrations.filter(
+      person => person.role === "Worker"
+    );
+
+    if (!workers.length) {
+      list.append(
+        makeText("p", "अभी कोई डेमो कामगार रजिस्टर नहीं है।", "empty")
+      );
+      return;
+    }
+
+    workers.forEach(worker => {
+      const card = makeText("article", "", "card");
+
+      card.append(makeText("h3", worker.name));
+      card.append(makeText("p", "काम: " + worker.skill));
+      card.append(makeText("p", "अनुभव: " + worker.experience));
+      card.append(makeText(
+        "p", "स्थान: " + worker.city + ", " + worker.state
+      ));
+
+      card.append(makeText(
+        "p", "संपर्क विवरण इस डेमो में निजी रखा गया है।"
+      ));
+
+      list.append(card);
+    });
+  }
+
+  function renderJobs() {
+    const list = $("jobList");
+    list.replaceChildren();
+
+    if (!jobs.length) {
+      list.append(
+        makeText("p", "अभी कोई डेमो नौकरी पोस्ट नहीं हुई है।", "empty")
+      );
+      return;
+    }
+
+    jobs.forEach(job => {
+      const card = makeText("article", "", "card listing");
+
+      card.append(makeText("h3", job.title));
+      card.append(makeText("p", "कंपनी: " + job.company));
+      card.append(makeText("p", "स्थान: " + job.city));
+
+      card.append(makeText(
+        "p",
+        "मासिक वेतन: ₹" + job.salary.toLocaleString("en-IN")
+      ));
+
+      card.append(makeText(
+        "p", "जरूरी कामगार: " + job.vacancies
+      ));
+
+      card.append(makeText(
+        "p", "काम की जानकारी: " + job.description
+      ));
+
+      list.append(card);
+    });
+  }
+
+  renderWorkers();
+  renderJobs();
+</script>
+
+</body>
+</html>
