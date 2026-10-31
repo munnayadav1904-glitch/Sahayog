@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Welcome to SAHAYOG</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#071b33,#075985,#087f8c);
+    color: white;
+}
+
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.box {
+    max-width: 650px;
+    width: 100%;
+}
+
+.logo {
+    font-size: 55px;
+    margin-bottom: 5px;
+}
+
+.brand {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 5px;
+}
+
+.tagline {
+    color: #a5f3fc;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 35px;
+    margin-top: 45px;
+}
+
+.description {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #e0f2fe;
+    margin: 20px 0;
+}
+
+.highlight {
+    color: #fde68a;
+    font-weight: bold;
+}
+
+.buttons {
+    margin-top: 35px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.start {
+    background: #facc15;
+    color: #102a43;
+}
+
+.job {
+    background: white;
+    color: #075985;
+}
+
+.company {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.quote {
+    margin-top: 45px;
+    font-size: 16px;
+    font-style: italic;
+    color: #fde68a;
+}
+
+footer {
+    margin-top: 35px;
+    color: #bae6fd;
+    font-size: 12px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="welcome">
+
+<div class="box">
+
+<div class="logo">🤝</div>
+
+<div class="brand">SAHAYOG</div>
+
+<div class="tagline">
+CONNECTING PEOPLE • CREATING OPPORTUNITIES
+</div>
+
+<h1>Welcome to SAHAYOG!</h1>
+
+<p class="description">
+
+A warm welcome to <span class="highlight">SAHAYOG</span>!
+
+We believe that every person has a talent
+and every company needs skilled people.
+
+Our mission is to connect companies with
+talented workers and help people discover
+new job opportunities.
+
+Together, we can build a better future
+through skills, hard work and opportunities.
+
+</p>
+
+<p class="highlight">
+Your Skills. Your Opportunities. Your Future.
+</p>
+
+<div class="buttons">
+
+<button class="start" onclick="startApp()">
+GET STARTED →
+</button>
+
+<button class="job" onclick="openWorker()">
+FIND A JOB
+</button>
+
+<button class="company" onclick="openCompany()">
+REGISTER COMPANY
+</button>
+
+</div>
+
+<div class="quote">
+
+"Together We Work, Together We Grow!"
+
+</div>
+
+<footer>
+© 2026 SAHAYOG | A Platform For Everyone
+</footer>
+
+</div>
+</div>
+
+<script>
+
+function startApp() {
+    alert("Welcome to SAHAYOG! Let's get started.");
+}
+
+function openWorker() {
+    alert("Welcome! Please open Job Seeker Registration.");
+}
+
+function openCompany() {
+    alert("Welcome! Please open Company Registration.");
+}
+
+</script>
+
+</body>
+</html>
