@@ -540,3 +540,390 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAHAYOG - Job Connect</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+}
+
+header {
+    background: #102a43;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+header h1 {
+    font-size: 32px;
+    margin: 0;
+}
+
+header p {
+    color: #cbd5e1;
+}
+
+.container {
+    max-width: 650px;
+    margin: 25px auto;
+    padding: 15px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 3px 12px #00000015;
+}
+
+h2 {
+    color: #102a43;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 13px;
+    margin: 8px 0 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 7px;
+    font-size: 15px;
+}
+
+button {
+    background: #087f5b;
+    color: white;
+    padding: 13px;
+    width: 100%;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #065f46;
+}
+
+.tab {
+    background: #102a43;
+    margin-bottom: 10px;
+}
+
+.result {
+    background: #e6fcf5;
+    padding: 12px;
+    margin-top: 12px;
+    border-radius: 8px;
+    overflow-wrap: anywhere;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #64748b;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SAHAYOG</h1>
+    <p>Connecting Companies With Skilled People</p>
+</header>
+
+<div class="container">
+
+<div class="card">
+<h2>Welcome to SAHAYOG</h2>
+<p>Register your company or find a job.</p>
+
+<button class="tab" onclick="showCompany()">
+Company Registration
+</button>
+
+<button class="tab" onclick="showWorker()">
+Job Seeker Registration
+</button>
+</div>
+
+
+<!-- COMPANY FORM -->
+
+<div class="card" id="company">
+
+<h2>Company Registration</h2>
+
+<form id="companyForm">
+
+<input name="companyName"
+placeholder="Company Name" required>
+
+<input name="ownerName"
+placeholder="Company Owner Name" required>
+
+<input name="companyWork"
+placeholder="Company Work / Business Type" required>
+
+<input name="workers"
+type="number"
+min="1"
+placeholder="Number of Workers Required" required>
+
+<input name="skills"
+placeholder="Required Skills" required>
+
+<input name="salary"
+type="number"
+min="0"
+placeholder="Monthly Salary (₹)" required>
+
+<input name="hours"
+type="number"
+min="1"
+max="24"
+placeholder="Working Hours Per Day" required>
+
+<input name="phone"
+type="tel"
+pattern="[0-9]{10}"
+placeholder="Mobile Number (10 digits)" required>
+
+<textarea name="address"
+placeholder="Company Address" required></textarea>
+
+<textarea name="description"
+placeholder="Full Company Description" required></textarea>
+
+<button type="submit">
+Register Company
+</button>
+
+</form>
+</div>
+
+
+<!-- JOB SEEKER FORM -->
+
+<div class="card" id="worker" style="display:none;">
+
+<h2>Job Seeker Registration</h2>
+
+<form id="workerForm">
+
+<input name="name"
+placeholder="Full Name" required>
+
+<input name="phone"
+type="tel"
+pattern="[0-9]{10}"
+placeholder="Mobile Number (10 digits)" required>
+
+<input name="age"
+type="number"
+min="18"
+placeholder="Age" required>
+
+<input name="skills"
+placeholder="Your Skills" required>
+
+<input name="experience"
+placeholder="Work Experience" required>
+
+<input name="education"
+placeholder="Education" required>
+
+<input name="hobbies"
+placeholder="Your Hobbies">
+
+<select name="jobType" required>
+<option value="">Select Job Type</option>
+<option>Full Time</option>
+<option>Part Time</option>
+<option>Contract Work</option>
+</select>
+
+<input name="salary"
+type="number"
+min="0"
+placeholder="Expected Monthly Salary (₹)" required>
+
+<textarea name="address"
+placeholder="Your Address" required></textarea>
+
+<button type="submit">
+Register As Job Seeker
+</button>
+
+</form>
+</div>
+
+
+<!-- REGISTERED DATA -->
+
+<div class="card">
+<h2>Registration Dashboard</h2>
+<div id="results">
+No registrations yet.
+</div>
+</div>
+
+</div>
+
+<footer>
+<p>© 2026 SAHAYOG | Connecting People With Opportunities</p>
+</footer>
+
+
+<script>
+
+function showCompany() {
+    document.getElementById("company").style.display = "block";
+    document.getElementById("worker").style.display = "none";
+}
+
+function showWorker() {
+    document.getElementById("company").style.display = "none";
+    document.getElementById("worker").style.display = "block";
+}
+
+
+// Save registrations in browser
+
+let companies = JSON.parse(
+    localStorage.getItem("companies") || "[]"
+);
+
+let workers = JSON.parse(
+    localStorage.getItem("workers") || "[]"
+);
+
+
+document.getElementById("companyForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let data = Object.fromEntries(
+        new FormData(this).entries()
+    );
+
+    companies.push(data);
+
+    localStorage.setItem(
+        "companies",
+        JSON.stringify(companies)
+    );
+
+    alert("Company Registered Successfully!");
+
+    this.reset();
+    displayData();
+
+});
+
+
+document.getElementById("workerForm")
+.addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    let data = Object.fromEntries(
+        new FormData(this).entries()
+    );
+
+    workers.push(data);
+
+    localStorage.setItem(
+        "workers",
+        JSON.stringify(workers)
+    );
+
+    alert("Job Seeker Registered Successfully!");
+
+    this.reset();
+    displayData();
+
+});
+
+
+function displayData() {
+
+    let output = "";
+
+    output += "<h3>Registered Companies</h3>";
+
+    companies.forEach(function(c) {
+
+        output += `
+        <div class="result">
+        <b>${escapeHTML(c.companyName)}</b><br>
+        Work: ${escapeHTML(c.companyWork)}<br>
+        Workers: ${escapeHTML(c.workers)}<br>
+        Skills: ${escapeHTML(c.skills)}<br>
+        Salary: ₹${escapeHTML(c.salary)}<br>
+        Hours: ${escapeHTML(c.hours)} per day
+        </div>
+        `;
+
+    });
+
+
+    output += "<h3>Registered Job Seekers</h3>";
+
+    workers.forEach(function(w) {
+
+        output += `
+        <div class="result">
+        <b>${escapeHTML(w.name)}</b><br>
+        Skills: ${escapeHTML(w.skills)}<br>
+        Experience: ${escapeHTML(w.experience)}<br>
+        Job Type: ${escapeHTML(w.jobType)}<br>
+        Expected Salary: ₹${escapeHTML(w.salary)}
+        </div>
+        `;
+
+    });
+
+    if (companies.length === 0 && workers.length === 0) {
+        output = "No registrations yet.";
+    }
+
+    document.getElementById("results").innerHTML = output;
+
+}
+
+
+function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, function(char) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#39;"
+        }[char];
+    });
+}
+
+displayData();
+
+</script>
+
+</body>
+</html>
