@@ -1128,3 +1128,224 @@ function openCompany() {
 
 </body>
 </html>
+<section class="government-helper">
+    <h2>🏛️ Government Employee Helper</h2>
+
+    <p>
+        Sahayog पर सरकारी कर्मचारियों और हेल्पर की तलाश
+        करने वाले लोगों को जोड़ें।
+    </p>
+
+    <div class="helper-options">
+
+        <button onclick="showForm('need')">
+            I Need a Helper
+        </button>
+
+        <button onclick="showForm('work')">
+            I Want to Become a Helper
+        </button>
+
+    </div>
+
+    <form id="govForm">
+
+        <h3 id="formTitle">Registration Form</h3>
+
+        <label>Full Name</label>
+        <input type="text" id="name"
+               placeholder="Enter Your Name" required>
+
+        <label>Mobile Number</label>
+        <input type="tel" id="phone"
+               placeholder="Enter Mobile Number"
+               pattern="[0-9]{10}" required>
+
+        <label>City</label>
+        <input type="text" id="city"
+               placeholder="Enter Your City" required>
+
+        <div id="jobDetails">
+
+            <label>Government Department / Work Area</label>
+            <input type="text" id="department"
+                   placeholder="Enter Department">
+
+            <label>What Help Is Required?</label>
+            <textarea id="requirement"
+                      placeholder="Describe Your Requirement"></textarea>
+
+        </div>
+
+        <div id="helperDetails">
+
+            <label>Your Qualification</label>
+            <input type="text" id="qualification"
+                   placeholder="Enter Qualification">
+
+            <label>Your Skills</label>
+            <textarea id="skills"
+                      placeholder="Enter Your Skills"></textarea>
+
+            <label>Work Experience</label>
+            <input type="text" id="experience"
+                   placeholder="Enter Experience">
+
+        </div>
+
+        <label>
+            <input type="checkbox" id="confirm" required>
+            I confirm that the information is correct.
+        </label>
+
+        <button type="submit">Submit Registration</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <p class="note">
+        Sahayog is an independent employment platform.
+        It does not represent any government department
+        or provide official government recruitment.
+        Applicants must be at least 18 years old.
+    </p>
+</section>
+
+<style>
+
+.government-helper {
+    max-width: 550px;
+    margin: 30px auto;
+    padding: 22px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px #0002;
+    font-family: Arial, sans-serif;
+}
+
+.government-helper h2 {
+    color: #123b70;
+    text-align: center;
+}
+
+.helper-options {
+    display: grid;
+    gap: 12px;
+    margin: 20px 0;
+}
+
+.government-helper button {
+    padding: 13px;
+    background: #1769aa;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.government-helper input,
+.government-helper textarea {
+    width: 100%;
+    padding: 11px;
+    margin: 8px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    box-sizing: border-box;
+}
+
+.government-helper label {
+    font-weight: bold;
+}
+
+.government-helper textarea {
+    min-height: 80px;
+}
+
+#govForm {
+    display: none;
+}
+
+.note {
+    font-size: 12px;
+    color: #555;
+}
+
+</style>
+
+<script>
+
+let selectedType = "";
+
+function showForm(type) {
+
+    selectedType = type;
+
+    document.getElementById("govForm").style.display = "block";
+
+    if (type === "need") {
+
+        document.getElementById("formTitle").innerText =
+        "I Need a Helper Registration";
+
+        document.getElementById("jobDetails").style.display = "block";
+        document.getElementById("helperDetails").style.display = "none";
+
+        document.getElementById("department").required = true;
+        document.getElementById("requirement").required = true;
+
+        document.getElementById("qualification").required = false;
+        document.getElementById("skills").required = false;
+
+    } else {
+
+        document.getElementById("formTitle").innerText =
+        "I Want to Become a Helper";
+
+        document.getElementById("jobDetails").style.display = "none";
+        document.getElementById("helperDetails").style.display = "block";
+
+        document.getElementById("department").required = false;
+        document.getElementById("requirement").required = false;
+
+        document.getElementById("qualification").required = true;
+        document.getElementById("skills").required = true;
+
+    }
+
+}
+
+document.getElementById("govForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const data = {
+        type: selectedType,
+        name: document.getElementById("name").value,
+        phone: document.getElementById("phone").value,
+        city: document.getElementById("city").value,
+        department: document.getElementById("department").value,
+        requirement: document.getElementById("requirement").value,
+        qualification: document.getElementById("qualification").value,
+        skills: document.getElementById("skills").value
+    };
+
+    let registrations = JSON.parse(
+        localStorage.getItem("governmentHelperRegistrations") || "[]"
+    );
+
+    registrations.push(data);
+
+    localStorage.setItem(
+        "governmentHelperRegistrations",
+        JSON.stringify(registrations)
+    );
+
+    document.getElementById("message").innerText =
+    "Registration saved successfully!";
+
+    this.reset();
+
+});
+
+</script>
