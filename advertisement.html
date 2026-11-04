@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAHAYOG Advertisement</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f1f5f9;
+}
+
+header {
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    padding: 20px;
+}
+
+h2 {
+    color: #123c69;
+}
+
+button {
+    background: #123c69;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+}
+
+.ad-card {
+    background: white;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px #ddd;
+}
+
+.ad-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+#adminPanel {
+    display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SAHAYOG</h1>
+    <p>Advertisement & Business Promotion</p>
+</header>
+
+<div class="container">
+
+    <h2>📢 Advertisements</h2>
+
+    <div id="adsContainer">
+        <p>No advertisements available.</p>
+    </div>
+
+    <hr>
+
+    <h2>Admin Login</h2>
+
+    <input type="password"
+    id="adminPassword"
+    placeholder="Enter Admin Password">
+
+    <button onclick="adminLogin()">Admin Login</button>
+
+    <div id="adminPanel">
+
+        <h2>Post New Advertisement</h2>
+
+        <input type="text"
+        id="companyName"
+        placeholder="Company Name">
+
+        <textarea
+        id="adDescription"
+        placeholder="Advertisement Description"></textarea>
+
+        <input type="url"
+        id="adImage"
+        placeholder="Advertisement Image URL">
+
+        <button onclick="addAdvertisement()">
+            Publish Advertisement
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const ADMIN_PASSWORD = "CHANGE_THIS_PASSWORD";
+
+let advertisements = [];
+
+function adminLogin() {
+
+    let password =
+    document.getElementById("adminPassword").value;
+
+    if(password === ADMIN_PASSWORD) {
+
+        document.getElementById("adminPanel")
+        .style.display = "block";
+
+        alert("Welcome Admin!");
+
+    } else {
+
+        alert("Incorrect Password!");
+
+    }
+}
+
+function addAdvertisement() {
+
+    let name =
+    document.getElementById("companyName").value;
+
+    let description =
+    document.getElementById("adDescription").value;
+
+    let image =
+    document.getElementById("adImage").value;
+
+    if(!name || !description) {
+        alert("Please fill all details!");
+        return;
+    }
+
+    let ad = {
+        name: name,
+        description: description,
+        image: image
+    };
+
+    advertisements.push(ad);
+
+    displayAds();
+
+    document.getElementById("companyName").value = "";
+    document.getElementById("adDescription").value = "";
+    document.getElementById("adImage").value = "";
+
+    alert("Advertisement Published!");
+}
+
+function displayAds() {
+
+    let container =
+    document.getElementById("adsContainer");
+
+    container.innerHTML = "";
+
+    advertisements.forEach(ad => {
+
+        container.innerHTML += `
+
+        <div class="ad-card">
+
+            <h3>${ad.name}</h3>
+
+            ${ad.image ?
+            `<img src="${ad.image}" alt="Advertisement">`
+            : ""}
+
+            <p>${ad.description}</p>
+
+            <b>Sponsored Advertisement</b>
+
+        </div>
+
+        `;
+
+    });
+}
+
+</script>
+
+</body>
+</html>
