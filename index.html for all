@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SAHAYOG - Connect Together</title>
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+}
+
+header {
+    background: #123c69;
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 35px;
+    letter-spacing: 2px;
+}
+
+nav {
+    background: #092747;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 12px;
+    font-weight: bold;
+}
+
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: #dcecff;
+}
+
+.hero h2 {
+    font-size: 32px;
+    color: #123c69;
+}
+
+.hero p {
+    margin: 15px;
+    font-size: 17px;
+}
+
+button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 13px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px;
+}
+
+button:hover {
+    background: #e68900;
+}
+
+.container {
+    max-width: 750px;
+    margin: 35px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 3px 15px #ccc;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #123c69;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 13px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+textarea {
+    height: 90px;
+}
+
+.submit {
+    width: 100%;
+    background: #123c69;
+}
+
+.section {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.card {
+    background: white;
+    padding: 25px;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px #ddd;
+}
+
+footer {
+    background: #092747;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>SAHAYOG</h1>
+    <p>Connecting Businesses, Institutions and People</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#register">Register</a>
+    <a href="#join">Join Us</a>
+</nav>
+
+<section class="hero" id="home">
+
+    <h2>Welcome to SAHAYOG</h2>
+
+    <p>
+    A platform where businesses, schools, colleges,
+    companies and people connect together.
+    </p>
+
+    <button onclick="location.href='#register'">
+        Register Your Organization
+    </button>
+
+    <button onclick="location.href='#join'">
+        Join SAHAYOG
+    </button>
+
+</section>
+
+<section class="section">
+
+    <h2>Who Can Register?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Business</h3>
+            <p>Register your business.</p>
+        </div>
+
+        <div class="card">
+            <h3>Schools</h3>
+            <p>Register your school.</p>
+        </div>
+
+        <div class="card">
+            <h3>Colleges</h3>
+            <p>Register your college.</p>
+        </div>
+
+        <div class="card">
+            <h3>Companies</h3>
+            <p>Register your company.</p>
+        </div>
+
+        <div class="card">
+            <h3>Organizations</h3>
+            <p>Register your organization.</p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ORGANIZATION REGISTRATION -->
+
+<div class="container" id="register">
+
+    <h2>Register Your Organization</h2>
+
+    <form onsubmit="submitForm(event,'Organization')">
+
+        <input type="text"
+        placeholder="Organization / Business Name"
+        required>
+
+        <select required>
+            <option value="">Select Organization Type</option>
+            <option>Business</option>
+            <option>School</option>
+            <option>College</option>
+            <option>Company</option>
+            <option>Startup</option>
+            <option>NGO</option>
+            <option>Other</option>
+        </select>
+
+        <input type="text"
+        placeholder="Owner / Representative Name"
+        required>
+
+        <input type="email"
+        placeholder="Email Address"
+        required>
+
+        <input type="tel"
+        placeholder="Mobile Number"
+        pattern="[0-9]{10}"
+        required>
+
+        <input type="text"
+        placeholder="City / Location"
+        required>
+
+        <textarea
+        placeholder="Describe Your Organization"></textarea>
+
+        <button class="submit" type="submit">
+            Register Now
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- JOIN REGISTRATION -->
+
+<div class="container" id="join">
+
+    <h2>Join SAHAYOG</h2>
+
+    <p style="text-align:center">
+    Interested in joining our platform?
+    Fill out the registration form below.
+    </p>
+
+    <form onsubmit="submitForm(event,'Join')">
+
+        <input type="text"
+        placeholder="Your Full Name"
+        required>
+
+        <input type="email"
+        placeholder="Your Email"
+        required>
+
+        <input type="tel"
+        placeholder="Your Mobile Number"
+        pattern="[0-9]{10}"
+        required>
+
+        <select required>
+            <option value="">Why Do You Want To Join?</option>
+            <option>Business</option>
+            <option>Employment</option>
+            <option>Partnership</option>
+            <option>Education</option>
+            <option>Networking</option>
+            <option>Other</option>
+        </select>
+
+        <textarea
+        placeholder="Tell Us About Yourself"></textarea>
+
+        <button class="submit" type="submit">
+            Join Now
+        </button>
+
+    </form>
+
+</div>
+
+
+<footer>
+
+    <h2 style="color:white">SAHAYOG</h2>
+
+    <p>Connecting People. Building Opportunities.</p>
+
+    <p>© 2026 SAHAYOG. All Rights Reserved.</p>
+
+</footer>
+
+
+<script>
+
+function submitForm(event, type) {
+
+    event.preventDefault();
+
+    alert(
+      "Thank you for your interest in SAHAYOG! " +
+      "Your form has been submitted in this demo."
+    );
+
+}
+
+</script>
+
+</body>
+</html>
